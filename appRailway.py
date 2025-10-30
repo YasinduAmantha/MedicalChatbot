@@ -25,7 +25,7 @@ os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 # load existing pinecone index file
 embedding = download_embeddings()
-index_name = "medical-chatbot"
+index_name = "railway-rules-new"
 docserach = PineconeVectorStore.from_existing_index(
     index_name=index_name,
     embedding=embedding
@@ -49,7 +49,7 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 # create basic default route
 @app.route("/")
 def index():
-    return render_template('chat.html')
+    return render_template('chatRailway.html')
 
 @app.route("/get", methods=["GET", "POST"])
 def chat():
